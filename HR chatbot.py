@@ -1,3 +1,7 @@
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('stopwords')
 import tkinter as tk
 from tkinter import scrolledtext
 from PIL import Image, ImageTk
@@ -13,7 +17,7 @@ from sklearn.metrics import accuracy_score
 import random
 
 # Load leave policies data
-leave_policies = pd.read_csv('D:/leave_policies.csv')
+leave_policies = pd.read_csv('F:/leave policies/leave_policies.csv')
 
 # Initialize lemmatizer and stemmer
 lemmatizer = WordNetLemmatizer()
@@ -77,7 +81,7 @@ class HRBotGUI:
 
         # Load and display the logo with error handling
         try:
-            self.logo = Image.open('D:/absax_logo.png')
+            self.logo = Image.open('F:/leave policies/absax_logo.png')
             self.logo = self.logo.resize((100, 100), Image.LANCZOS)
             self.logo = ImageTk.PhotoImage(self.logo)
         except FileNotFoundError:
@@ -141,8 +145,8 @@ class HRBotGUI:
 
         self.status_label = tk.Label(self.bottom_frame, text="Chatbot powered by ABSAX Technologies", 
                                      font=('Helvetica', 10, 'bold'), fg='white', bg='#2C3E50')
-        self.status_label.pack(side=tk.LEFT, padx=10)
-
+        self.status_label.pack(side=tk.LEFT, padx=30)
+        
         self.clear_button = tk.Button(self.bottom_frame, text="Clear", 
                                       command=self.clear_messages)
         self.clear_button.pack(side=tk.RIGHT)
@@ -218,7 +222,7 @@ def main():
 
     # Load and display the avatar icon
     try:
-        avatar = Image.open('D:/chatbot_avataar.png')
+        avatar = Image.open('F:/leave policies/chatbot_avataar.png')
         avatar = avatar.resize((100, 100), Image.LANCZOS)
         avatar = ImageTk.PhotoImage(avatar)
     except FileNotFoundError:
